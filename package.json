@@ -1,0 +1,23 @@
+{
+  "name": "apipedidoscompra",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+"scripts": {
+  "dev": "tsx watch src/server.ts",
+  "build": "tsc --project tsconfig.json",
+  "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "fastify": "^5.5.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.2"
+  }
+}
