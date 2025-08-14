@@ -8,7 +8,7 @@ export async function productRoutes(app: FastifyInstance, controller: ProductCon
     Body: Omit<Product, "id" | "createdAt" | "updatedAt">
   }>(
     "/products",
-    { preHandler: requireFields(["nome", "preco", "descricao"]) },
+    { preHandler: requireFields(["title", "amount", "cover"]) }, // campos obrigatórios corretos
     controller.create.bind(controller)
   );
 
