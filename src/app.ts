@@ -9,6 +9,9 @@ import { orderRoutes } from "./routes/orderRoutes"
 import { ProductController } from "./controllers/productController"
 import { productRoutes } from "./routes/productsRoutes"
 
+import { NitroController } from "./controllers/nitroController"
+import { nitroRoutes } from "./routes/nitroRoutes"
+
 export function buildApp() {
   const app = Fastify({
     logger: false,
@@ -28,6 +31,12 @@ export function buildApp() {
   const productController = new ProductController()
   app.register(async (instance) => {
     await productRoutes(instance, productController)
+  })
+
+  // Nitro Pagamentos
+  const nitroController = new NitroController()
+  app.register(async (instance) => {
+    await nitroRoutes(instance)
   })
 
   // Health check

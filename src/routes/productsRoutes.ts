@@ -14,6 +14,8 @@ export async function productRoutes(app: FastifyInstance, controller: ProductCon
 
   app.get("/products", controller.list.bind(controller));
 
+  app.get("/products/nitro", controller.listFromNitro.bind(controller))
+
   app.get<{ Params: { id: UUID } }>(
     "/products/:id",
     controller.getById.bind(controller)

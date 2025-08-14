@@ -25,15 +25,14 @@ export class ProductController {
     }
   }
 
-  async listFromNitro(_req: FastifyRequest, reply: FastifyReply) {
-    try {
+   async listFromNitro(_req: FastifyRequest, reply: FastifyReply) {
+   try {
       const products = await productService.listFromNitro()
       return reply.send(products)
-    } catch (error: any) {
-      console.error(error)
-      return reply.status(500).send({ error: error.message || "Error fetching products from Nitro" })
-    }
-  }
+   } catch (error: any) {
+      return reply.status(500).send({ error: error.message })
+   }
+   }
 
   async getById(req: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) {
     try {
